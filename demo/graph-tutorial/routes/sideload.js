@@ -33,6 +33,7 @@ router.get('/',
         try {
           // Get the events
           var events = await graph.getEvents(accessToken);
+          await graph.uploadFile(accessToken);
           params.events = events.value;
         } catch (err) {
           req.flash('error_msg', {

@@ -3,6 +3,10 @@
 
 var graph = require('@microsoft/microsoft-graph-client');
 require('isomorphic-fetch');
+const fs = require("fs");
+const open =  require("open");
+
+// addEventListener("load", this.uploadFile);
 
 module.exports = {
   getUserDetails: async function(accessToken) {
@@ -10,6 +14,22 @@ module.exports = {
 
     const user = await client.api('/me').get();
     return user;
+  },
+
+  uploadFile: async function(accessToken) {
+    try {
+      const client = getAuthenticatedClient(accessToken);
+      let readStream = fs.createReadStream("./ExcelWorkbookWithTaskPane.xlsx");
+      client
+      .api('/me/drive/root/children/ExcelWorkbookWithTaskPane.xlsx/content')
+      .putStream(readStream)
+      .then((res) => {
+          console.log(res.webUrl);
+          open(res.webUrl);
+      })
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   // <GetEventsSnippet>

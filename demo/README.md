@@ -67,4 +67,4 @@ If you don't have a Microsoft account, there are a couple of options to get a fr
     npm start
     ```
 
-1. Open a browser and browse to `http://localhost:3000`.
+1. Open a browser and browse to `http://localhost:3001`.

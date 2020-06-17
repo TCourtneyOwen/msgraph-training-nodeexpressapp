@@ -95,7 +95,7 @@ passport.use(new OIDCStrategy(
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
-var calendarRouter = require('./routes/calendar');
+var sideloadRouter = require('./routes/sideload');
 var graph = require('./graph');
 
 var app = express();
@@ -167,7 +167,7 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/calendar', calendarRouter);
+app.use('/sideload', sideloadRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
