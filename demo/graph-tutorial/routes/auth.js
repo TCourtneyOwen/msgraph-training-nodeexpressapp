@@ -28,7 +28,7 @@ router.post('/callback',
         response: res,
         failureRedirect: '/',
         failureFlash: true,
-        successRedirect: '/'
+        successRedirect: '/sideload'
       }
     )(req,res,next);
   }
